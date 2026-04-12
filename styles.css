@@ -537,15 +537,22 @@ img, video {
   }
 
   .hero-duo {
-    display: none;
+    display: block; /* Show on mobile but static */
+  }
+
+  .hero-player {
+    opacity: 0.35; /* Static opacity without animation */
+    animation: none; /* Disable animations on mobile */
   }
 
   .hero h1 {
     font-size: clamp(2rem, 7vw, 2.7rem);
+    animation: fadeInUp 1s ease-out;
   }
 
   .hero p {
     font-size: 1rem;
+    animation: fadeInUp 1s ease-out 0.2s both;
   }
 
   .main-content {
@@ -555,6 +562,7 @@ img, video {
   .cards,
   .player-grid {
     grid-template-columns: 1fr;
+    animation: fadeInUp 1s ease-out 0.4s both;
   }
 
   .player-card .player-image {
@@ -602,3 +610,4 @@ img, video {
   .player-card .player-teaser-hint { font-size: 0.82rem; }
   .player-modal__close { width: 2.25rem; height: 2.25rem; top: 0.5rem; right: 0.5rem; }
 }
+@keyframes fadeInUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
