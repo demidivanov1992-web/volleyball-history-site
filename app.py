@@ -1,22 +1,30 @@
-from flask import Flask, render_template
+"""Serve the static ValleyballHistory.com site locally.
 
-app = Flask(__name__)
+This project is a static website and is ready for GitHub Pages.
+Run this file with Python to start a local HTTP server.
+"""
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+from http.server import SimpleHTTPRequestHandler
+from socketserver import TCPServer
+import os
+import webbrowser
 
-@app.route('/history')
-def history():
-    return render_template('history.html')
+PORT = 8000
 
-@app.route('/training')
-def training():
-    return render_template('training.html')
+if __name__ == "__main__":
+    project_root = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(project_root)
+    url = f"http://localhost:{PORT}/"
+    print(f"Serving static site at {url}")
+    print("Press Ctrl+C to stop.")
 
-@app.route('/players')
-def players():
-    return render_template('players.html')
+    try:
+        webbrowser.open(url)
+    except Exception:
+        pass
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    with TCPServer(("", PORT), SimpleHTTPRequestHandler) as httpd:
+        try:
+            httpd.serve_forever()
+        except KeyboardInterrupt:
+            print("\nServer stopped.")

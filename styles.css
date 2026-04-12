@@ -479,7 +479,13 @@ a:hover { color: var(--accent-gold); }
   font-size: 0.9rem;
 }
 
-.site-footer a { color: var(--accent-gold); }
+..site-footer a { color: var(--accent-gold); }
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 /* Page title strip */
 .page-title-strip {
@@ -497,9 +503,102 @@ a:hover { color: var(--accent-gold); }
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  .nav-links { width: 100%; justify-content: center; }
-  .hero { min-height: 35vh; padding: 2rem 1rem; }
-  .cards { grid-template-columns: 1fr; }
-  .player-grid { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .nav-inner {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem;
+  }
+
+  .page-title-strip {
+    padding: 1.25rem 1rem;
+  }
+
+  .hero {
+    min-height: 38vh;
+    padding: 2.5rem 1.1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 6vw, 3.2rem);
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .hero-duo {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 7vw, 2.7rem);
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .main-content {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .cards,
+  .player-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .player-card .player-image {
+    height: 180px;
+  }
+
+  .player-modal__dialog {
+    max-width: 100%;
+    max-height: 95vh;
+    padding: 1rem 1rem 0.9rem;
+  }
+
+  .player-modal__photo-slot .player-image {
+    height: 180px;
+  }
+
+  .training-section,
+  .card,
+  .player-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-brand {
+    width: 100%;
+    text-align: center;
+    font-size: 1.35rem;
+  }
+
+  .nav-links {
+    gap: 0.65rem;
+  }
+
+  .hero { padding: 1.75rem 0.9rem; }
+  .page-title-strip { padding: 1rem 0.9rem; }
+  .main-content { padding: 1.8rem 0.9rem 2.5rem; }
+  .training-section { padding: 1rem; }
+
+  .player-card .player-body { padding: 1rem; }
+  .player-card .player-teaser-hint { font-size: 0.82rem; }
+  .player-modal__close { width: 2.25rem; height: 2.25rem; top: 0.5rem; right: 0.5rem; }
 }
