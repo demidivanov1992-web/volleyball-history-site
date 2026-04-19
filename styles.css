@@ -537,12 +537,19 @@ img, video {
   }
 
   .hero-duo {
-    display: block; /* Show on mobile but static */
+    display: block;
   }
 
   .hero-player {
-    opacity: 0.35; /* Static opacity without animation */
-    animation: none; /* Disable animations on mobile */
+    opacity: 0.35;
+  }
+
+  .hero-player--left {
+    z-index: 2;
+  }
+
+  .hero-player--right {
+    z-index: 1;
   }
 
   .hero h1 {
